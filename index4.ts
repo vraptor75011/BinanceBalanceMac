@@ -1,8 +1,9 @@
-import * as rawApiConfig from './secrets.json';
-import { IPortfolioApiConfig } from './src/models/portfolio/portfolio.interfaces';
+import * as rawPortfolioConfig from './secrets.json';
+import { IPortfolioConfig } from './src/models/portfolio/portfolio.interfaces';
 import Portfolio from './src/models/portfolio/portfolio.model';
 
-const globalApiConfig: IPortfolioApiConfig = rawApiConfig;
+const portfolioConfig: IPortfolioConfig[] = rawPortfolioConfig;
 
-const MyPortfolio = new Portfolio(globalApiConfig);
-console.log('INDEX', MyPortfolio.getBalance());
+const Portfolios: Portfolio[] = [];
+
+portfolioConfig.forEach((config) => Portfolios.push(new Portfolio(config)));

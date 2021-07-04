@@ -1,19 +1,16 @@
+import { IBlockchainWalletConfig } from './blockchainWallet/blockchain.wallet.interfaces';
+import { IExchangeWalletConfig } from './exchangeWallet/exchange.wallet.interfaces';
 export interface IWallet {
-  syncBalances(): void;
-  apiConfig: IWalletApiConfig;
+  name: string;
   balances: IWalletAssetBalance[];
-  //  computeGlobalBalance(): number;
+  //  syncBalances(): void;
+  //  balances: IWalletAssetBalance[];
 }
-
-export interface IWalletApiConfig {
-  apiKey: string;
-  apiSecret?: string;
-  apiBaseEndPoint: string;
-}
-
 export interface IWalletAssetBalance {
   asset: string;
   free: number;
-  locked: number;
+  used: number;
   total: number;
 }
+
+export type IWalletType = IExchangeWalletConfig | IBlockchainWalletConfig;

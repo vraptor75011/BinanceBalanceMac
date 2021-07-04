@@ -1,11 +1,10 @@
-import { IWalletApiConfig } from '../wallet/wallet.interfaces';
+import { IWalletType } from '../wallet/wallet.interfaces';
 
 export interface IPortfolio {
+  name: string;
   getBalance(): number;
 }
-
-export interface IPortfolioApiConfig {
-  nomicsAPI: IWalletApiConfig;
-  binanceAPI?: IWalletApiConfig;
-  ftxAPI?: IWalletApiConfig;
+export interface IPortfolioConfig {
+  name: string;
+  wallets: IWalletType[];
 }
